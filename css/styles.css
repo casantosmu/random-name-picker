@@ -1,0 +1,137 @@
+/* === VARIABLES === */
+:root {
+  /* Colors */
+  --cc-hue: 122;
+  --cc-first: hsla(var(--cc-hue), 39%, 49%, 1);
+  --cc-first--dark: hsla(var(--cc-hue), 39%, 42%, 1);
+  --cc-first--light: hsla(var(--cc-hue), 0%, 80%, 1);
+  --cc-first--lighter: hsla(var(--cc-hue), 0%, 97%  , 1);
+  --cc-text: hsla(var(--cc-hue), 0%, 13%, 1);
+  --cc-alert: hsla(15, 100%, 40%, 1);
+  --cc-alert--light: hsla(15, 100%, 97%, 1);
+  --cc-body: #FFF;
+  --cc-white: #FFF;
+
+  /* Fonts */
+  --ff-body: 'Ubuntu', sans-serif;
+}
+
+/* === BASE === */
+body {
+  background-color: var(--cc-body);
+  font-family: var(--ff-body);
+  color: var(--cc-text)
+}
+
+/* === REUSABLES === */
+.container {
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  max-width: 750px;
+}
+
+.text-area {
+  width: 100%;
+  border: 1px solid var(--cc-first--light);
+  border-radius: .3rem;
+  resize: none;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 1em 2em;
+  background-color: var(--cc-first);
+  color: var(--cc-white);
+  white-space: normal;
+  border: none;
+  cursor: pointer;
+}
+
+.submit-btn:hover,
+.submit-btn:focus {
+  background-color: var(--cc-first--dark);
+}
+
+.alert-section {
+  margin-bottom: 1rem;
+  padding: .75em;
+  background-color: var(--cc-alert--light);
+  border: 1px solid var(--cc-alert);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+}
+
+.table__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: .5em;
+}
+
+.table__row--acc {
+  background-color: var(--cc-first--lighter);
+}
+
+.table__cell,
+.table__header {
+  width: 100%;
+}
+
+.table__header {
+  font-weight: 400;
+  text-align: left;
+}
+
+.table__header--bold,
+.table__cell--bold {
+  font-weight: 700;
+}
+
+/* === LAYOUT === */
+.main-section {
+  margin-bottom: 1rem;
+  padding: 1rem 2rem;
+  border-radius: .3rem;
+  -webkit-box-shadow: 0 0 1rem hsla(0, 0%, 0%, .3);
+          box-shadow: 0 0 1rem hsla(0, 0%, 0%, .3);
+}
+
+.main-section--acc {
+  background-color: var(--cc-first--lighter);
+}
+
+.main-section--p-0 {
+  padding: 0;
+}
+
+.main-section > * + *  {
+  margin-top: 1em;
+}
+
+.main-section__title {
+  margin-bottom: .75em;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.main-section__big-title {
+  margin-bottom: .75em;
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.main-section__description--semi-bold {
+  font-weight: 500;
+}
+
+/* === MEDIA QUERIES === */
+@media (max-width: 400px) {
+  html {
+    font-size: 14px;
+  }
+}
