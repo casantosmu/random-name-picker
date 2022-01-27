@@ -1,68 +1,97 @@
-/* === VARIABLES === */
+/*==================== VARIABLES CSS ====================*/
 :root {
-  /* Colors */
-  --cc-hue: 122;
-  --cc-first: hsla(var(--cc-hue), 39%, 49%, 1);
-  --cc-first--dark: hsla(var(--cc-hue), 39%, 42%, 1);
-  --cc-first--light: hsla(var(--cc-hue), 0%, 80%, 1);
-  --cc-first--lighter: hsla(var(--cc-hue), 0%, 97%  , 1);
-  --cc-text: hsla(var(--cc-hue), 0%, 13%, 1);
-  --cc-alert: hsla(15, 100%, 40%, 1);
-  --cc-alert--light: hsla(15, 100%, 97%, 1);
-  --cc-body: #FFF;
-  --cc-white: #FFF;
+  /*========== Colors ==========*/
+  /* Change favorite color - Blue 210 - Purple 250 - Green 142 - Pink 340*/
+  --hue-color: 142;
+  
+  /* HSL color mode */
+  --primary-color: hsla(var(--hue-color), 39%, 49%, 1);
+  --primary-color--dark: hsla(var(--hue-color), 39%, 42%, 1);
+  --primary-color--light: hsla(var(--hue-color), 0%, 80%, 1);
+  --primary-color--lighter: hsla(var(--hue-color), 0%, 97%  , 1);
+  --text-color: hsla(var(--hue-color), 0%, 13%, 1);
+  --alert-color: hsla(15, 100%, 40%, 1);
+  --alert-color--light: hsla(15, 100%, 97%, 1);
+  --body-color: hsl(var(--hue-color), 100%, 99%);
+  --white-color: #FFF;
 
-  /* Fonts */
-  --ff-body: 'Ubuntu', sans-serif;
+   /*========== Font and typography ==========*/
+  --body-font: 'Ubuntu', sans-serif;
+  --normal-font-size: 1rem;
+  --heading-font-size: 1.25rem;
+  --big-font-size: 1.5rem;
 }
 
-/* === BASE === */
+/*==================== BASE ====================*/
 body {
-  background-color: var(--cc-body);
-  font-family: var(--ff-body);
-  color: var(--cc-text)
+  background-color: var(--body-color);
+  font-family: var(--body-font);
+  color: var(--text-color)
 }
 
-/* === REUSABLES === */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+textarea {
+  width: 100%;
+}
+
+@media (max-width: 400px) {
+  html {
+  font-size: 14px;
+  }
+}
+
+/*==================== CSS CLASSES ====================*/
 .container {
   margin: 0 auto;
   padding: 1rem 2rem;
   max-width: 750px;
 }
 
-.text-area {
-  width: 100%;
-  border: 1px solid var(--cc-first--light);
-  border-radius: .3rem;
-  resize: none;
-}
-
-.submit-btn {
-  width: 100%;
+.btn {
   padding: 1em 2em;
-  background-color: var(--cc-first);
-  color: var(--cc-white);
+  background-color: var(--primary-color);
+  color: var(--white-color);
   white-space: normal;
   border: none;
   cursor: pointer;
 }
 
-.submit-btn:hover,
-.submit-btn:focus {
-  background-color: var(--cc-first--dark);
-}
-
-.alert-section {
+.card {
   margin-bottom: 1rem;
-  padding: .75em;
-  background-color: var(--cc-alert--light);
-  border: 1px solid var(--cc-alert);
+  padding: 1rem 2rem;
+  border-radius: .3rem;
+  -webkit-box-shadow: 0 0 1rem hsla(0, 0%, 0%, .3);
+          box-shadow: 0 0 1rem hsla(0, 0%, 0%, .3);
 }
 
-.table {
-  width: 100%;
-  border-collapse: collapse;
-  overflow: hidden;
+.card > * + *  {
+  margin-top: 1em;
+}
+
+.card__title {
+  margin-bottom: .75em;
+  font-size: var(--heading-font-size);
+  font-weight: 400;
+}
+
+.card__title--big {
+  font-size: var(--big-font-size);
+  font-weight: 500;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: var(--primary-color--dark);
+}
+
+.text-area {
+  border: 1px solid var(--primary-color--light);
+  border-radius: .3rem;
+  resize: none;
 }
 
 .table__row {
@@ -72,66 +101,44 @@ body {
   padding: .5em;
 }
 
-.table__row--acc {
-  background-color: var(--cc-first--lighter);
-}
-
-.table__cell,
-.table__header {
-  width: 100%;
-}
-
 .table__header {
   font-weight: 400;
   text-align: left;
 }
 
-.table__header--bold,
-.table__cell--bold {
-  font-weight: 700;
+.table__header,
+.table__cell {
+  width: 100%;
 }
 
-/* === LAYOUT === */
-.main-section {
+.alert-card {
   margin-bottom: 1rem;
-  padding: 1rem 2rem;
-  border-radius: .3rem;
-  -webkit-box-shadow: 0 0 1rem hsla(0, 0%, 0%, .3);
-          box-shadow: 0 0 1rem hsla(0, 0%, 0%, .3);
+  padding: .75em;
+  background-color: var(--alert-color--light);
+  border: 1px solid var(--alert-color);
 }
 
-.main-section--acc {
-  background-color: var(--cc-first--lighter);
+/*==================== UTILITIES ====================*/
+.w-100 {
+  width: 100%;
 }
 
-.main-section--p-0 {
+.bg-lighter {
+  background-color: var(--primary-color--lighter);
+}
+
+.p-0 {
   padding: 0;
 }
 
-.main-section > * + *  {
-  margin-top: 1em;
+.font-bold {
+  font-weight: 700;
 }
 
-.main-section__title {
-  margin-bottom: .75em;
-  font-size: 1.25rem;
-  font-weight: 400;
-}
-
-.main-section__big-title {
-  margin-bottom: .75em;
-  font-size: 1.5rem;
+.font-semibold {
   font-weight: 500;
+}
+
+.text-center {
   text-align: center;
-}
-
-.main-section__description--semi-bold {
-  font-weight: 500;
-}
-
-/* === MEDIA QUERIES === */
-@media (max-width: 400px) {
-  html {
-    font-size: 14px;
-  }
 }

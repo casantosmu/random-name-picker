@@ -5,34 +5,38 @@ randomPicker.addEventListener('submit', e => {
 
   // Get array from text area by line breaks and remove empty strings
   const namesList = randomPicker.textArea.value.split("\n").filter(String);
-
   const lengthList = namesList.length;
+
+  // Get random string
   const randomNumber = Math.floor(Math.random() * lengthList);
   const pickedName = namesList[randomNumber];
 
+  // Show result
   const showResult = () => {
     randomPicker.insertAdjacentHTML('afterend',
       `<article id="htmlResult">
-        <header class="main-section__header">
-          <h2 class="main-section__big-title">Resultados</h2>
+        <header class="card__header">
+          <h2 class="card__title card__title--big text-center">Resultados</h2>
         </header>
-        <table class="main-section main-section--p-0 table">
-          <tr class="table__row table__row--acc">
+        <table class="card table p-0">
+          <tr class="table__row bg-lighter">
             <th class="table__header">Nombres totales (N):</th>
             <td class="table__cell">${lengthList}</td>
           </tr>
           <tr class="table__row">
-            <th class="table__header table__header--bold">El ganador:</th>
-            <td class="table__cell table__cell--bold">${pickedName}</td>
+            <th class="table__header font-bold">El ganador:</th>
+            <td class="table__cell font-bold">${pickedName}</td>
           </tr>
         </table>
       </article>`)
   };
   const htmlResult = document.querySelector('#htmlResult');
+
+  // Show alert
   const showAlert = () => {
     randomPicker.insertAdjacentHTML('afterend',
-      `<article class="alert-section" id="htmlAlert">
-        <p class="alert-section__description">Por favor, introduzca más de un artículo.</p>
+      `<article class="alert-card" id="htmlAlert">
+        <p class="alert-card__description">Por favor, introduzca más de un artículo.</p>
       </article>`)
   };
   const htmlAlert = document.querySelector('#htmlAlert');
